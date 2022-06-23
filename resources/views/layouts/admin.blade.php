@@ -40,6 +40,12 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('addAdmin/dist/css/adminlte.min.css') }}">
+    <style>
+        .box-happy {
+            background-color: #fd7e42;
+            color: white;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -93,20 +99,6 @@
 <script src="{{ asset('addAdmin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('addAdmin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
-<script>
-    $(function () {
-        $('#table1').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script>
-
 <!-- AdminLTE App -->
 <script src="{{ asset('addAdmin/dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -116,18 +108,27 @@
 
 <script>
     $(function () {
-        $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
+        $('#table1').DataTable({
             "paging": true,
-            "lengthChange": false,
-            "searching": false,
+            // "lengthChange": false,
+            // "searching": false,
             "ordering": true,
             "info": true,
             "autoWidth": false,
             "responsive": true,
+            "order": [[0,'desc']],
+        });
+    });
+    $(function () {
+        $('#table2').DataTable({
+            // "paging": true,
+            // "lengthChange": false,
+            // "searching": false,
+            // "ordering": true,
+            // "info": true,
+            // "autoWidth": false,
+            // "responsive": true,
+            // "order" : [1, 'DESC'],
         });
     });
 </script>

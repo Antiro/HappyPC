@@ -20,6 +20,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'name' => $this->faker->name(),
+            'surname' => $this->faker->name(),
             'phone'=>$this->faker->phoneNumber(),
             'img_id' => rand(1, 15),
             'role_id' => '3',

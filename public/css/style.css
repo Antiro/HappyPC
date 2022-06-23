@@ -174,6 +174,7 @@ html, body {
     position: relative;
     overflow-x: hidden;
     min-width: 320px;
+    background-color: #e5e5e5;
 }
 
 @media (min-width: 576px) {
@@ -7484,7 +7485,7 @@ h6, .h6, .fz-6 {
     width: 100%;
     z-index: 9;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 .is-transparent .header-main, .has-fixed .header-main {
@@ -7629,7 +7630,7 @@ h6, .h6, .fz-6 {
 }
 
 .header-navbar.menu-shown .header-navbar-overlay {
-    width: 100vw;
+    width: 99vw;
     opacity: 1;
     visibility: visible;
 }
@@ -7639,7 +7640,7 @@ h6, .h6, .fz-6 {
     top: 99%;
     right: 0;
     left: 0;
-    width: 100%;
+    width: 99%;
     height: auto;
     background: transparent;
     margin-top: 12px;
@@ -7655,7 +7656,7 @@ h6, .h6, .fz-6 {
 }
 
 .has-fixed .header-navbar-classic:before {
-    width: 100vw;
+    width: 99vw;
     border-radius: 0;
 }
 
@@ -8142,7 +8143,7 @@ h6, .h6, .fz-6 {
     width: 1px;
     height: 18px;
     background: #e5e5e5;
-    margin: auto 0;
+    margin: auto 4px;
     top: 0;
     display: none;
 }
@@ -8160,7 +8161,7 @@ h6, .h6, .fz-6 {
 }
 
 .menu-btns > li {
-    padding: 0px;
+    padding: 1px;
 }
 
 .menu-btns > li a {
@@ -8213,7 +8214,7 @@ h6, .h6, .fz-6 {
 
 .menu-item a {
     font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 16.8px;
     color: #131313;
     padding: 12px 0;
@@ -8557,7 +8558,6 @@ h6, .h6, .fz-6 {
         display: flex;
         align-items: center;
         padding: 0;
-
     }
 
     .menu-item {
@@ -14794,7 +14794,7 @@ h6, .h6, .fz-6 {
 form .input {
     width: 100%;
     font-size: 1rem;
-    border: 1px solid #ecf6fa;
+    /*border: 1px solid #ecf6fa;*/
     padding: 18px 20px;
     margin-bottom: 10px;
     color: #4b4b4b;
@@ -16178,21 +16178,22 @@ input[type=radio] {
 }
 
 .dislike input[type=radio]:checked + label {
-    background: #fc7860;
+    background: #dd2807;
 }
 
 body.modal-open {
     padding-right: 0px !important;
 }
 .project-area{
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .filtr-item{
     transition: 0ms !important;
     margin: 2px;
 }
 .service{
-    padding-top: 5%;
+    padding: 5% 1% 0 1%;
+    padding-bottom: 40px;
 }
 
 input[type=radio]:checked + label > img {
@@ -16207,4 +16208,110 @@ input[type=radio]:checked + label > img {
 .footer {
     padding-top: 30px;
     padding-bottom: 15px;
+}
+
+.slideImg{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+}
+.menu-btn{
+    font-size: 13px;
+}
+
+.form-info{
+    border: 0 solid;
+}
+
+/*select{*/
+/*    min-height: 60px;*/
+/*}*/
+
+/*select > option{*/
+/*    background: #ff9563;*/
+/*    min-height: 60px;*/
+/*}*/
+/*select > option:focus{*/
+/*    background-color: #ffd5be;*/
+/*}*/
+
+.form_radio_btn {
+    display: inline-block;
+    margin-right: 10px;
+}
+.form_radio_btn input[type=radio] {
+    display: none;
+}
+.form_radio_btn label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    border: 1px solid #999;
+    border-radius: 0;
+    user-select: none;
+}
+
+/* Checked */
+.form_radio_btn input[type=radio]:checked + label {
+    background: #fb7e42;
+    color: white;
+}
+
+/* Hover */
+.form_radio_btn label:hover {
+    color: #666;
+}
+
+.badge{
+    color: white;
+    padding: 10px 12px 10px 12px;
+}
+
+.btn-Like, .btn-Dislike{
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    background: #fd7e42;
+    text-transform: uppercase;
+    border-radius: 0px;
+    display: inline-block;
+    padding: 10px 20px;
+    transition: all ease .5s;
+    outline-style: none;
+    min-width: 120px;
+}
+
+.btn:focus{
+    border: 0 solid grey;
+}
+
+.btn-Like:hover, .btn-Like:focus {
+    background: #89d737;
+    color: #ffffff;
+    border: 0 solid;
+}
+
+.btn-Dislike:hover, .btn-Dislike:focus {
+    background: #fd401f;
+    color: #ffffff;
+    border: 0 solid;
+}
+
+.td-table {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;
+}
+
+.focusProfile{
+    background: rgba(236, 246, 250, 0.5);
+    color: #fd7e42 !important;
+}
+.active>.page-link, .page-link.active {
+    z-index: 3;
+    border: 0;
 }

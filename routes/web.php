@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\Admin\LoginAdminController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImagesOfServicesController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ServiceApplicationsController;
 use App\Http\Controllers\SponsorController;
-use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
@@ -36,6 +37,18 @@ Route::post('/login', [LoginController::class, 'loginCheck'])->name('login.check
 
 //Service
 Route::resource('services', ServiceController::class);
+Route::controller(ServiceController::class)->group(function () {
+
+    Route::get('/services', 'index')->name('services.index');
+    Route::get('/services/show/{product}', 'show')->name('service.show');
+    Route::get('/category/services', 'getServicesByCategoryForm')->name('category.services.form');
+
+});
+
+//Review
+Route::resource('review', ReviewController::class);
+
+Route::resource('workers', WorkerController::class);
 
 Route::resource('applications', ApplicationController::class);
 
@@ -47,14 +60,31 @@ Route::middleware('auth')->group(function () {
 
     //Profile
     Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
+    Route::get('/profile/applications', [LoginController::class, 'applications'])->name('profileApplications');
+    Route::get('/profile/reviews', [LoginController::class, 'reviews'])->name('profileReviews');
+
     //Logout
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    //NewApplication
-    Route::post('/newApplication', [ApplicationController::class, 'registerApplication'])->name('application.store');
-    //NewReview
-    Route::post('/newReview', [ReviewController::class, 'registerReview'])->name('review.store');
     //User
     Route::resource('user', UserController::class);
+
+    //Basket
+    Route::controller(BasketController::class)->group(function () {
+
+        Route::get('/basket', 'basket')->name('basket');
+        Route::post('/basket/plus', 'basketPlus')->name('basket.plus');
+        Route::delete('/basket/{basket}', 'basketMinus')->name('basket.minus');
+
+    });
+
+    //Application
+    Route::controller(ApplicationController::class)->group(function () {
+
+        Route::post('/application', 'createApplication')->name('application.create');
+        Route::delete('/application/{application}', 'NewDestroy')->name('application.NewDestroy');
+        Route::get('/application/{application}', 'show')->name('application.show');
+
+    });
 
 });
 
@@ -67,26 +97,35 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('can:general')->group(function () {
 
         //Logout
-        Route::get('/logout', [LoginAdminController::class, 'logoutAdmin'])->name('logout');
-
+//        Route::get('/logout', [LoginAdminController::class, 'logoutAdmin'])->name('logout');
         Route::get('/dashboard', [LoginAdminController::class, 'dashboard'])->name('dashboard');
         Route::get('/logout', [LoginAdminController::class, 'logoutAdmin'])->name('logout');
-        Route::get('/reviews', [ReviewController::class, 'adminView'])->name('ReviewsAdminView');
-        Route::get('/statistics', [StatisticController::class, 'adminView'])->name('StatisticsAdminView');
-    });
 
+    });
 
     Route::middleware('can:admin')->group(function () {
 
+        Route::resource('imagesOfServices', ImagesOfServicesController::class);
         //View tables
         Route::get('/services', [ServiceController::class, 'adminView'])->name('servicesAdminView');
-        Route::resource('imagesOfServices', ImagesOfServicesController::class);
+
         Route::get('/applications', [ApplicationController::class, 'adminView'])->name('ApplicationsAdminView');
+
+        Route::resource('serviceApplications', ServiceApplicationsController::class);
+
+        Route::get('/workers', [WorkerController::class, 'adminView'])->name('workersAdminView');
+        Route::get('/workers/create', [WorkerController::class, 'adminView'])->name('workersStore');
+
+
+        Route::get('/reviews', [ReviewController::class, 'adminView'])->name('ReviewsAdminView');
+
+        Route::get('/reviews/{review}', [ReviewController::class, 'updateAdmin'])->name('updateReviewAdmin');
+
         Route::get('/aboutUs', [AboutUsController::class, 'adminView'])->name('AboutUsAdminView');
-        Route::get('/contacts', [ContactController::class, 'adminView'])->name('ContactsAdminView');
         Route::get('/sponsors', [SponsorController::class, 'adminView'])->name('SponsorsAdminView');
         Route::get('/users', [UserController::class, 'adminView'])->name('UsersAdminView');
-        Route::get('/workers', [WorkerController::class, 'adminView'])->name('WorkersAdminView');
+
         Route::get('/delivery', [DeliveryController::class, 'adminView'])->name('DeliveryAdminView');
+
     });
 });

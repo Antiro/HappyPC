@@ -6,10 +6,9 @@
 
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-8 col-sm-9">
+            <div class="col-md-9 col-sm-12">
                 <div class="banner-content">
-                    <br>
-                    <h1 class="banner-heading">@yield('page')</h1>
+                    <h1 class="banner-heading" style="margin-top: 3%;margin-bottom: 10px">@yield('page')</h1>
                     <ul class="banner-menu">
                         <li><a href="{{route('home')}}">Главная</a></li>
                         <li><a href="{{route('services.index')}}">Услуги</a></li>

@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-8 col-sm-9">
+            <div class="col-md-8 col-sm-12">
                 <div class="banner-content">
                     <br>
                     <h1 class="banner-heading">@yield('page')</h1>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', "$user->name")
+@section('title', "Happy PC | $user->name")
 @section('page', "$user->name")
 
 @section('content')
@@ -25,6 +25,7 @@
                         @method('PATCH')
 
                         <input name="name" value="{{$user->name}}" style="display: none">
+                        <input name="surname" value="{{$user->surname}}" style="display: none">
                         <input name="phone" value="{{$user->phone}}" style="display: none">
                         <input name="email" value="{{$user->email}}" style="display: none">
 
@@ -51,9 +52,7 @@
         </div>
     </div>
 
-    <div class="section tc-grey bg-me is-shadow profile row gutter-vr-30px" style="padding: 20px" id="career">
-
-
+    <div class="section tc-grey bg-me is-shadow profile row gutter-vr-30px" style="padding: 10px; margin-top: 2% !important;" id="career">
         @if ($message = session()->get('success'))
             <div class="alert alert-success alert-dismissible fade show col-12" role="alert">
                 <strong>{{$message}}</strong>
@@ -80,9 +79,9 @@
         <div class="col-md-3">
             <div class="wgs-service shadow">
                 <ul class="wgs-menu">
-                    <li><a data-toggle="collapse" data-target="#career-one">Профиль</a></li>
-                    <li><a data-toggle="collapse" data-target="#career-two">Заявки</a></li>
-                    <li><a data-toggle="collapse" data-target="#career-three">Отзывы</a></li>
+                    <li><a href="{{route('profile')}}" class="focusProfile">Профиль</a></li>
+                    <li><a href="{{route('profileApplications')}}">Заявки ({{count($applications)}})</a></li>
+                    <li><a href="{{route('profileReviews')}}">Отзывы ({{count($reviews)}})</a></li>
                 </ul>
             </div>
         </div>
@@ -100,18 +99,55 @@
                         <form method="post" action="{{route('user.update', ['user' => $user])}}">
                             @csrf
                             @method('PATCH')
-                            <input name="img_id" value="{{$user->img_id}}" style="display: none">
+                            <div class="row">
 
-                            Email <input type="text" name="email" placeholder="{{$user->email}}"
-                                         value="{{$user->email}}"
-                                         class="input bdr-b required">
-                            Имя <input type="text" name="name" placeholder="{{$user->name}}" value="{{$user->name}}"
-                                       class="input bdr-b required">
-                            Телефон <input type="tel" name="phone" placeholder="{{$user->phone}}"
-                                           value="{{$user->phone}}"
-                                           class="input bdr-b required">
+                                <div class="col-lg-3 col-sm-12">
+                                    <input name="img_id" value="{{$user->img_id}}" style="display: none">
+                                    <a class="form-control input form-info">Имя:</a>
+                                </div>
 
-                            <button type="submit" class="btn">Сохранить</button>
+                                <div class="col-lg-9 col-sm-12">
+                                    <input type="text" class="form-control input bdr-b required"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroup-sizing-default" name="name"
+                                           placeholder="{{$user->name}}" value="{{$user->name}}">
+                                </div>
+
+                                <div class="col-lg-3 col-sm-12">
+                                    <a class="form-control input form-info">Фамилия:</a>
+                                </div>
+
+                                <div class="col-lg-9 col-sm-12">
+                                    <input type="text" class="form-control input bdr-b required"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroup-sizing-default" name="surname"
+                                           placeholder="{{$user->surname}}" value="{{$user->surname}}">
+                                </div>
+
+                                <div class="col-lg-3 col-sm-12">
+                                    <a class="form-control input form-info">Email:</a>
+                                </div>
+                                <div class="col-lg-9 col-sm-12">
+                                    <input type="text" class="form-control input bdr-b required"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroup-sizing-default" name="email"
+                                           placeholder="{{$user->email}}"
+                                           value="{{$user->email}}">
+                                </div>
+
+                                <div class="col-lg-3 col-sm-12">
+                                    <a class="form-control input form-info">Телефон:</a>
+                                </div>
+                                <div class="col-lg-9 col-sm-12">
+                                    <input type="tel" class="form-control input bdr-b required"
+                                           aria-label="Sizing example input"
+                                           aria-describedby="inputGroup-sizing-default" name="phone"
+                                           placeholder="{{$user->phone}}"
+                                           value="{{$user->phone}}">
+                                </div>
+
+                            </div>
+                            <button type="submit" class="btn" style="margin-top: 2%">Сохранить</button>
                         </form>
                     </div>
 
@@ -130,91 +166,6 @@
                         </a>
                     </div>
                 </div>
-                <br>
-            </div>
-
-            <div class="col-md-12 bg-me is-shadow collapse order-md-last" id="career-two" data-parent="#career">
-                <div class="row">
-                    <div class="section-head section-md form-field col-md-12" style="margin: 15px">
-                        <br>
-                        <h2>Ваши заявки</h2>
-                    </div>
-                    <div class="col-12">
-                        <div class="accordion">
-                            @if($applications == [])
-                                <div class="accordion-item">
-                                    <div class="accordion-header">
-                                        <div
-                                            class="d-flex justify-content-between align-items-center collapsed"
-                                            data-toggle="collapse">
-                                            <p>
-                                                <a><strong>У вас пока нет заявок</strong></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-
-                            @foreach($applications as $app)
-                                <div class="accordion-item">
-                                    <div class="accordion-header">
-                                        <div
-                                            class="d-flex justify-content-between align-items-center collapsed"
-                                            data-toggle="collapse">
-                                            <p><a href="{{route("services.show",$app->service->id)}}">
-                                                    <strong>{{$app->service->name}}</strong>
-                                                </a></p>
-                                            <p>{{$app->status->name}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-12 bg-me is-shadow collapse order-md-last" id="career-three" data-parent="#career">
-                <div class="row">
-                    <div class="section-head section-md form-field col-md-12" style="margin: 15px">
-                        <br>
-                        <h2>Ваши отзывы</h2>
-                    </div>
-                    <div class="col-12">
-                        <div class="accordion">
-                            @if($reviews == [])
-                                <div class="accordion-item">
-                                    <div class="accordion-header">
-                                        <div
-                                            class="d-flex justify-content-between align-items-center collapsed"
-                                            data-toggle="collapse">
-                                            <p>
-                                                <a><strong>У вас пока нет отзывов</strong></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                            @foreach($reviews as $rev)
-                                <div class="accordion-item">
-                                    <div class="accordion-header">
-                                        <div
-                                            class="d-flex justify-content-between align-items-center collapsed "
-                                            data-toggle="collapse">
-                                            <p>
-                                                <a href="{{route("services.show",$rev->service->id)}}"><strong>{{$rev->service->name}}</strong></a>
-                                            </p>
-                                            <p>{{$rev->getShortTextAttribute()}}</p>
-                                            <p>{{$rev->evaluation->name}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
                 <br>
             </div>
         </div>

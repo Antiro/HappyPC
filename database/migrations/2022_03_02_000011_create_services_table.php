@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('class_id')->constrained('my_classes')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
             $table->string('description');
-            $table->double('prise');
+            $table->double('price');
         });
     }
 

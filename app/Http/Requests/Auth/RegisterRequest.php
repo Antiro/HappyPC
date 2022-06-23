@@ -11,12 +11,13 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'surname' => 'required|string',
             'email' => 'required|email',
             'password' =>
                 [
                 'required',
 //                "regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*!@=#$%^&*)[a-zA-Z0-9!@=#$%^&*]{8,}$/",
-                  'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/',
+                  'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/',
                 'confirmed'
 
                 ]
@@ -28,9 +29,9 @@ class RegisterRequest extends FormRequest
         return [
             'required' => 'Поле :attribute обязательно для заполнения.',
             'email' => 'Электронный адрес должен быть валидным.',
-            'min' => 'Поле :attribute должно содержать не менее :min симв.',
+            'min' => 'Поле :attribute должно содержать не менее :min символов.',
             'confirmed' => 'Пароли не совпадают.',
-            'regex' => 'Пароль должен содержать не менее 8 символов, среди которых должны быть хотя-бы одина: заглавный латинская буква; строчная латинская буква; цифра.'
+            'regex' => 'Пароль должен содержать не менее 6 символов, среди которых должны быть хотя-бы одина: заглавный латинская буква; строчная латинская буква; цифра.'
         ];
     }
 
@@ -39,7 +40,8 @@ class RegisterRequest extends FormRequest
         return [
             'password' => 'Пароль',
             'name' => 'Имя',
-            'surname' => 'Фамилия'
+            'surname' => 'Фамилия',
+            'email' => 'Электронный адрес'
         ];
     }
 }

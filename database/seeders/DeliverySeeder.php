@@ -12,8 +12,8 @@ class DeliverySeeder extends Seeder
     public function run()
     {
         DB::table('deliveries')->insert([
-            ['name'=>'Почта России','description'=>"текст"],
-            ['name'=>'CDEK','description'=>"текст"],
+            ['name'=>'ГОРОДА РОССИИ','description'=>"Доставка в Республики Беларусь и Казахстан осуществляется службами СДЭК и PonyExpress. Стоимость доставки – от 500 руб. "],
+            ['name'=>'БЕЛАРУСЬ И КАЗАХСТАН','description'=>"Доставка в Республики Беларусь и Казахстан осуществляется службами СДЭК и PonyExpress. Стоимость доставки – от 500 руб. "],
         ]);
     }
 }

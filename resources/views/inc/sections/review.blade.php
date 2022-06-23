@@ -22,7 +22,7 @@
                             <img src="{{asset('storage/users')}}/{{$review->user->img->img}}" alt="{{$review->user->name}}">
                         </div>
                         <div class="author-con">
-                            <h6 class="author-name t-u">{{$review->user->name}}</h6>
+                            <h6 class="author-name t-u">{{ $review->user->surname == null ? '' : $review->user->surname  }} {{$review->user->name}}</h6>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,12 +10,14 @@ class User extends Authenticatable
     use HasFactory,HasFactory,Notifiable;
 
     protected $fillable = [
-        'email',
+
         'name',
+        'email',
         'phone',
         'img_id',
-        'password',
+        'surname',
         'role_id',
+        'password',
     ];
 
     public $timestamps = false;
@@ -25,6 +26,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function baskets()
+    {
+        return $this->hasMany(Basket::class);
+    }
 
     public function role()
     {

@@ -29,22 +29,22 @@
                                 <table id="table1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th>Название</th>
-                                        <th>Описание</th>
-                                        <th>Класс</th>
-                                        <th>Цена</th>
-                                        <th>Действие</th>
+                                        <th class="text-center">id</th>
+                                        <th class="text-center">Название</th>
+                                        <th class="text-center">Описание</th>
+                                        <th class="text-center">Класс</th>
+                                        <th class="text-center">Цена</th>
+                                        <th class="text-center">Действие</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($services as $service)
                                         <tr>
-                                            <td>{{$service->id}}</td>
-                                            <td>{{$service->name}}</td>
-                                            <td>{{$service->getShortDescriptionAttribute()}}</td>
-                                            <td>{{$service->ServiceClass->name}}</td>
-                                            <td>{{$service->price}}</td>
+                                            <td class="text-center">{{$service->id}}</td>
+                                            <td class="text-center">{{$service->name}}</td>
+                                            <td class="text-center">{{$service->getShortDescriptionAttribute()}}</td>
+                                            <td class="text-center">{{$service->ServiceClass->name}}</td>
+                                            <td class="text-center">{{$service->price}}</td>
                                             <td class="text-center">
                                                 <button class="btn bg-danger"><i class="fa-solid fa-trash-can"></i></button>
                                                 <button class="btn bg-primary"><i class="fa-solid fa-pen"></i></button>

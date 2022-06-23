@@ -286,7 +286,7 @@
   white-space: nowrap;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 994px) {
   .col-xl-2 .small-box h3,
   .col-lg-2 .small-box h3,
   .col-md-2 .small-box h3 {
@@ -560,7 +560,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 994px) {
   .col-xl-2 .info-box .progress-description,
   .col-lg-2 .info-box .progress-description,
   .col-md-2 .info-box .progress-description {
@@ -1759,5 +1759,9 @@
   float: left;
   height: auto;
   width: 65px;
+}
+.box-happy{
+    background-color: #fd7e42;
+    color: white;
 }
 /*# sourceMappingURL=adminlte.extra-components.css.map */

@@ -10,7 +10,7 @@
     </header>
 
     <main class="container">
-        <div class="section section-x service-single-v3 tc-grey bg-me show is-shadow">
+        <div class="section section-x service-single-v3 tc-grey bg-me show is-shadow"  style="padding-bottom: 5% !important;">
             <div class="container">
                 <div class="row gutter-vr-30px">
 
@@ -22,7 +22,7 @@
                         <div class="text-center">
                             <div class="section-head section-md mtm-10">
                                 <h2>{{$worker->name}}</h2>
-                                <h4 class="lead">{{$worker->implodeClasses($worker)}} ремонтом</h4>
+                                <h4 class="lead">{{$worker->implodeClasses($worker)}} ремонт</h4>
                                 <p class="lead">{{$worker->description}}</p>
                             </div>
                         </div>

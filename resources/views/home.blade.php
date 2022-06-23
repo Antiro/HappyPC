@@ -10,22 +10,26 @@
 
     <main class="container">
 
-        <!--sections -->
-        @include('inc.sections.worker')
-    </main>
-    @include('inc.sections.statistic')
-    <main class="container">
-
 {{--        @include('inc.sections.feature')--}}
 
         @include('inc.sections.services')
 
         @include('inc.sections.review')
 
-        @include('inc.sections.partner')
+        @include('inc.sections.worker')
+    </main>
+
+    @include('inc.sections.statistic')
+
+    <main class="container">
+
+    @include('inc.sections.partner')
 
     </main>
+
+
     </body>
 
     @include('layouts.footer')
+
 @endsection

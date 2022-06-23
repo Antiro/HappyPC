@@ -16,8 +16,8 @@ class ClassSeeder extends Seeder
     public function run()
     {
         DB::table('my_classes')->insert([
-            ['name' => 'Модульный', 'img' => 'modular.jpg'],
-            ['name' => 'Компонентный', 'img' => 'component.jpg'],
+            ['name' => 'Модульный'],
+            ['name' => 'Компонентный'],
         ]);
     }
 }

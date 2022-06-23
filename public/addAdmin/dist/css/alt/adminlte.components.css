@@ -12081,4 +12081,8 @@ button.close {
 a.close.disabled {
   pointer-events: none;
 }
+.box-happy{
+    background-color: #fd7e42;
+    color: white;
+}
 /*# sourceMappingURL=adminlte.components.css.map */

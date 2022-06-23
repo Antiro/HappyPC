@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,10 +9,12 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'class_id',
+
         'name',
-        'description',
         'price',
+        'class_id',
+        'description',
+
     ];
 
     public $timestamps = false;
@@ -48,5 +49,10 @@ class Service extends Model
     public function getShortDescriptionAttribute(): string
     {
         return mb_substr($this->description, 0, 30) . '...';
+    }
+
+    public static function allReal()
+    {
+        return Service::where('id', '>', 0);
     }
 }

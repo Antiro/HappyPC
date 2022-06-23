@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Редактирование записи</h1>
+                        <h3>Редактирование <a href="{{route("services.show",$service->id)}}" target="_blank">{{$service->name}}</a></h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">

@@ -1876,7 +1876,7 @@ pre code {
     }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1000px) {
     .table-responsive-lg {
         display: block;
         width: 100%;
@@ -3504,8 +3504,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     color: #495057;
     text-align: center;
     white-space: nowrap;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
+    /*background-color: #e9ecef;*/
+    /*border: 1px solid #ced4da;*/
     border-radius: .25rem
 }
 
@@ -4281,7 +4281,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1000px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding-right: 0;
         padding-left: 0

@@ -26,6 +26,16 @@ class FileService
         return $path;
     }
 
+    public static function uploadImgWorker($file, $defaultFile = 'default.jpg', $folder='/workers')
+    {
+        if ($file !== null) {
+            $path = $file->store($folder, 'public');
+        } else {
+            $path = $defaultFile;
+        }
+        return $path;
+    }
+
     public static function deleteImgService($file)
     {
         $path = $file->img;

@@ -100,14 +100,13 @@
                                                            style="height: 44px">
                                                 </div>
 
-
                                                 <div class="text-end">
                                                     <button class="btn btn-primary">Создать</button>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-4" style="padding: 2%">
                                             <img src="{{old('image', asset('/storage/add/default.jpg')) }}"
                                                  class="img-fluid rounded-start img-create" alt="post"
                                                  id="showImage" draggable="false">

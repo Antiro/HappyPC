@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Login')
-@section('page', 'Login')
-
+@section('title', 'Happy PC | Регистрация')
 @section('content')
 
     <header class="is-transparent is-sticky is-shrink" id="header">
@@ -25,15 +23,14 @@
                                             @error("email")
                                             <p><small class="text-danger">{{ $message }}</small></p>
                                             @enderror
-                                            <input type="email" name="email" placeholder="Email"
-                                                   value="{{ old('email') }}"
-                                                   class="input bdr-b required @error('email') is-invalid @enderror">
+                                            <input type="email" name="email" placeholder="Email" required
+                                                   value="{{ old('email') }}" class="input bdr-b required @error('email') is-invalid @enderror">
                                         </div>
                                         <div class="form-field col-md-12">
                                             @error("password")
                                             <p><small class="text-danger">{{ $message }}</small></p>
                                             @enderror
-                                            <input type="password" name="password" placeholder="Пароль"
+                                            <input type="password" name="password" placeholder="Пароль" required
                                                    class="input bdr-b required @error('password') is-invalid @enderror">
                                         </div>
                                     </div>

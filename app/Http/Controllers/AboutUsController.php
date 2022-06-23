@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\AboutUs;
+use App\Models\Application;
 use App\Models\Contact;
-use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,8 +12,10 @@ class AboutUsController extends Controller
     public function index(){
         return view('about.abouts', [
             'abouts' => AboutUs::all(),
-            'statistics'=>Statistic::all(),
             'contacts' => Contact::all(),
+            'allApplications'=>Application::all()->count(),
+            'workApplications'=>Application::all()->where('status_id',1)->count(),
+            'readyApplications'=>Application::all()->where('status_id',4)->count(),
         ]);
     }
 

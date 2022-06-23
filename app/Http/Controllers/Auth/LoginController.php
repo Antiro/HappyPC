@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\Application;
@@ -49,17 +48,48 @@ class LoginController extends Controller
 // показываем страницу личного кабинета
     public function profile()
     {
-         $user=Auth::user();
-         $applications=Application::where('user_id',$user->id)->get()->all();
-         $reviews=Review::where('user_id',$user->id)->get()->all();
-         $imgUsers=ImagesOfUser::all();
+        $user = Auth::user();
+        $imgUsers = ImagesOfUser::all();
+        $reviews = Review::where('user_id', $user->id)->latest()->get()->all();
+        $applications = Application::where('user_id', $user->id)->latest()->get()->all();
 
-        return view('auth.profile',[
-            'user'=>$user,
-            'applications'=>$applications,
-            'reviews'=>$reviews,
+        return view('auth.profile', [
+            'user' => $user,
+            'reviews' => $reviews,
             'imgUsers'=>$imgUsers,
             'contacts' => Contact::all(),
+            'applications' => $applications,
         ]);
     }
+
+    public function reviews()
+    {
+        $user = Auth::user();
+        $reviews = Review::where('user_id', $user->id)->latest()->get()->all();
+        $applications = Application::where('user_id', $user->id)->latest()->get()->all();
+
+
+        return view('auth.reviews', [
+            'user' => $user,
+            'reviews' => $reviews,
+            'contacts' => Contact::all(),
+            'applications' => $applications,
+        ]);
+    }
+
+    public function applications()
+    {
+        $user = Auth::user();
+        $reviews = Review::where('user_id', $user->id)->latest()->get()->all();
+        $applications = Application::where('user_id', $user->id)->latest()->get()->all();
+
+
+        return view('auth.applications', [
+            'user' => $user,
+            'reviews' => $reviews,
+            'contacts' => Contact::all(),
+            'applications' => $applications,
+        ]);
+    }
+
 }

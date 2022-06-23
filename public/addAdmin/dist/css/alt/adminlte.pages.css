@@ -965,4 +965,8 @@ body.iframe-mode-fullscreen .content-wrapper.iframe-mode {
   padding-left: 0;
   padding-right: 0;
 }
+.box-happy{
+    background-color: #fd7e42;
+    color: white;
+}
 /*# sourceMappingURL=adminlte.pages.css.map */

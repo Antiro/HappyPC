@@ -19,6 +19,37 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-12 col-sm-12" style="margin-top: 2%">
+                <form action="{{ route('admin.ReviewsAdminView') }}">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6"><h3 style="margin-bottom: 20px">Фильтрация по статусу
+                                        заявки</h3></div>
+                                <div class="col-lg-6 col-sm-6 text-right">
+                                    <a class="btn btn-danger" style="color:white !important;"
+                                       href="{{ route('admin.ReviewsAdminView') }}">Сбросить фильтр</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @foreach($statuses as $st)
+
+                                    <div class="form_radio_btn col-lg-4">
+                                        <input type="radio" name="status" value="{{ $st->id }}"
+                                               id="{{ $st->id }}"
+                                               onchange="this.form.submit()" {{ $status == $st->id ? 'checked': ''}}>
+                                        <label class="w-100 form-check-label btn btn-primary text-center"
+                                               for="{{ $st->id }}">{{ $st->name }}</label>
+                                    </div>
+
+                                @endforeach
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </section>
 
 
@@ -32,9 +63,9 @@
                                     <thead>
                                     <tr>
                                         <th>id</th>
+                                        <th>Заявка</th>
                                         <th>Услуга</th>
                                         <th>Пользователь</th>
-                                        <th>Отзыв</th>
                                         <th>Оценка</th>
                                         <th>Статус</th>
                                         <th>Действие</th>
@@ -45,43 +76,16 @@
                                     @foreach($reviews as $review)
                                         <tr>
                                             <td>{{$review->id}}</td>
+                                            <td>{{$review->application_id}}</td>
                                             <td>{{$review->service->name}}</td>
                                             <td>{{$review->user->name}}</td>
-                                            <td>{{$review->getShortTextAttribute()}}</td>
-                                            <td>{{$review->evaluation->name}}</td>
+                                            <td>{{ $review->evaluation == null ? 'Нет оценки' : $review->evaluation->name  }}</td>
                                             <td>{{$review->status->name}}</td>
                                             <td class="text-center">
 
-                                                <a class="btn bg-primary" href="{{ route('services.edit', $review) }}"><i class="fa-solid fa-pen"></i></a>
-
-                                                <button class="btn bg-danger" type="button" data-toggle="modal"
-                                                        data-target="#Modal{{$review->id}}"><i
-                                                        class="fa-solid fa-trash-can"></i></button>
-
-                                                <div class="modal fade" id="Modal{{$review->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Уточните ответ</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Вы действительно хотите удалить запись?</p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Отмена</button>
-                                                                <form action="{{route('services.destroy', $review)}}"
-                                                                      method="post">
-                                                                    @csrf
-                                                                    @method("DELETE")
-                                                                    <button class="btn btn-danger">Удалить</button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <a class="btn bg-primary" href="{{ route('review.edit', $review) }}">
+                                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

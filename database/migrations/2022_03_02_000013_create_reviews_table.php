@@ -19,7 +19,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('service_id')->constrained('services')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('status_id')->constrained('statuses')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('application_id')->constrained('applications')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('evaluation_id')->constrained('evaluations')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

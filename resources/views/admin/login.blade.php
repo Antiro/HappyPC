@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Happy PC | Вход в админ панель')
 
 @section('content')
     <header class="is-transparent is-sticky is-shrink" id="header">

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('name',150);
-            $table->string('phone',20);
+            $table->string('surname',150);
+            $table->string('phone',25);
             $table->foreignId('img_id')->constrained('images_of_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('role_id')->default(3)->constrained('roles')->cascadeOnDelete();
         });

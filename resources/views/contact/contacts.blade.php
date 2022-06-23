@@ -16,7 +16,7 @@
                     <div class="col-12 text-left text-md-center">
                         <div class="section-head section-md">
                             <h2>Адрес мастерской</h2>
-                            <p class="lead">Россия, Белгород, Преображенская улица, 78Б</p>
+                            <p class="lead">Россия, Белгород, 50-летия Белгородской области, 12Б</p>
                         </div>
                     </div>
                 </div>
@@ -25,10 +25,9 @@
 
                     {{--Map--}}
                     <div class="col-md-8">
-                        <iframe
-                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A01bbe3198efd1a31aa81b80734eae1acdf291ba21b3b6a2657fe91254058bf57&amp;source=constructor"
-                            width="100%" height="96%" frameborder="0">
-                        </iframe>
+                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A01bbe3198efd1a31aa81b80734eae1acdf291ba21b3b6a2657fe91254058bf57&amp;source=constructor"
+                                    width="100%" height="96%" frameborder="0"></iframe>
+
                     </div>
 
                     {{--Working hours--}}
@@ -42,7 +41,7 @@
                                 <li><a class="timeOpen">Чт: 10:00 - 18:00</a></li>
                                 <li><a class="timeOpen">Пт: 10:00 - 18:00</a></li>
                                 <li><a class="timeOpen">Сб: 10:00 - 14:00</a></li>
-                                <li><a class="timeOpen">Вс: Закрыто</a></li>
+                                <li><a class="timeOpen">Вс: Выходной</a></li>
                             </ul>
                         </div>
                     </div>

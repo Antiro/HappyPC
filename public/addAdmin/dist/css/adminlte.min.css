@@ -34,7 +34,7 @@
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
+    --breakpoint-lg: 994px;
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
@@ -536,7 +536,7 @@ pre code {
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 994px) {
     .container, .container-lg, .container-md, .container-sm {
         max-width: 960px
     }
@@ -1422,7 +1422,7 @@ pre code {
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 994px) {
     .col-lg {
         -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
@@ -48809,6 +48809,27 @@ a.text-muted:hover {
 
 .dark-mode .dark-mode.accent-gray-dark .page-item .page-link:focus, .dark-mode .dark-mode.accent-gray-dark .page-item .page-link:hover {
     color: #3f474e
+}
+
+.form_radio_btn {
+    display: inline-block;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+/* Checked */
+.form_radio_btn input[type=radio]:checked + label {
+    color: #007bff;
+    border-color: #007bff;
+    background-color: white;
+}
+
+.form_radio_btn input[type=radio]:checked:hover + label:hover {
+    color: #007bff;
+    border-color: #007bff;
+    background-color: #f0ecf0;
 }
 
 /*# sourceMappingURL=adminlte.min.css.map */

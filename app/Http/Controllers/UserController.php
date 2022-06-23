@@ -25,10 +25,13 @@ class UserController extends Controller
             $request->phone=$user->phone;
 
         $user->update([
-            'img_id' => $request->img_id,
-            'email'=>$request->email,
+
             'name'=>$request->name,
             'phone'=>$request->phone,
+            'email'=>$request->email,
+            'img_id' => $request->img_id,
+            'surname'=>$request->surname,
+
         ]);
 
         return redirect()->route('profile')->with('success', 'Данные успешно изменены ...');
@@ -36,8 +39,8 @@ class UserController extends Controller
 
     public function adminView()
     {
-        $admin = Auth::user();
         $users = User::all();
+        $admin = Auth::user();
 
         return view('admin.user.users', compact(
             'admin',

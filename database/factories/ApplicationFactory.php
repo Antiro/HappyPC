@@ -14,7 +14,6 @@ class ApplicationFactory extends Factory
     {
         return [
             'user_id' => rand(1, 50),
-            'service_id' => rand(1, 8),
             'status_id' => rand(1, 3),
             'comment' => $this->faker->text($maxNbChars = 200),
         ];

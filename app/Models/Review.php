@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -11,21 +10,22 @@ class Review extends Model
     use HasFactory;
 
     protected $fillable = [
+
         'text',
         'user_id',
-        'service_id',
         'status_id',
+        'created_at',
+        'service_id',
         'evaluation_id',
+        'application_id',
     ];
-
-    public $timestamps = false;
 
     public function getShortTextAttribute(): string
     {
         return mb_substr($this->text, 0, 38) . '...';
     }
 
-    public function getDatePostClassicAttribute()
+    public function getDateReviewAttribute()
     {
         return $this->created_at->format('d.m.Y');
     }
@@ -48,5 +48,10 @@ class Review extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public static function allReal()
+    {
+        return Review::where('evaluation_id', '!=', null);
     }
 }

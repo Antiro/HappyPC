@@ -52414,4 +52414,9 @@ a.text-muted:hover {
 .dark-mode .dark-mode.accent-gray-dark .page-item .page-link:hover, .dark-mode .dark-mode.accent-gray-dark .page-item .page-link:focus {
   color: #3f474e;
 }
+.box-happy{
+    background-color: #fd7e42;
+    color: white;
+}
+
 /*# sourceMappingURL=adminlte.css.map */

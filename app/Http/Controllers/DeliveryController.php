@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Contact;
 use App\Models\Delivery;
-use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,8 +21,8 @@ class DeliveryController extends Controller
         $delivery = Delivery::all();
 
         return view('admin.delivery.delivery', compact(
-            'admin',
             'delivery',
+            'admin',
         ));
     }
 }

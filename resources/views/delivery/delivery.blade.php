@@ -10,7 +10,7 @@
     </header>
 
     <main class="container">
-        <div class="section section-x service-single-v3 tc-grey bg-me show is-shadow service" style="padding-bottom: 40px">
+        <div class="section section-x service-single-v3 tc-grey bg-me show is-shadow service">
             <div class="container">
 {{--                <div class="row justify-content-center">--}}
 {{--                    <div class="col-12 text-left text-md-center">--}}
@@ -42,8 +42,9 @@
 
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-12 text-left text-md-center" style="margin-top: 30px">
-                            <h5>Если у вас возникли вопросы, то вы можете позвонить по номеру телефона</h5>
+                    <div class="col-12 text-left text-md-center text-center" style="margin-top: 30px">
+                        <h5 class="text-center text-danger">Внимание! Доставка не входит в стоимость услуг и оплачивается за ваш счет!</h5>
+                        <h5>Если у вас возникли вопросы, то вы можете позвонить по номеру телефона</h5>
                         <h6>+7 (904) 088-88-88</h6>
 {{--                        <h6>или свяжитесь с нам в соц. сетях</h6>--}}
                     </div>

@@ -14,21 +14,21 @@ class ReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'comment'=>'required|string',
+            'text'=>'required|string',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'required' => 'Необходимо написать :attribute для отзыва',
+            'required' => 'Поле :attribute обязательно для заполнения.',
         ];
     }
 
     public function attributes(): array
     {
         return [
-            'comment' => 'комментарий',
+            'text'=> 'комментарий',
         ];
     }
 }

@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="col-lg-12 text-center" style="margin-top: 50px">
-            <p style="font-size: 10px">&copy; 2022. Все права защищены<br> Разаработан и создан by <a
+            <p style="font-size: 10px">&copy; 2022 HappyPC. Все права защищены<br> Разаработан и создан by <a
                     href="https://vk.com/andrey_antero" target="_blank">Antero</a></p>
             </div>
         </div>

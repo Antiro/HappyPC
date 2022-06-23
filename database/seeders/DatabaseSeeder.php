@@ -20,17 +20,17 @@ class DatabaseSeeder extends Seeder
         $this->call(SponsorSeeder::class);
         $this->call(AboutUsSeeder::class);
         $this->call(DeliverySeeder::class);
-        $this->call(StatisticSeeder::class);
         $this->call(EvaluationSeeder::class);
         $this->call(ImagesUsersSeeder::class);
         $this->call(WorkersClassesSeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(ImagesServicesSeeder::class);
 
         //Factories
-        User::factory(50)->create();
-        Service::factory(10)->create();
-        Review::factory(50)->create();
-        Application::factory(70)->create();
-
+        User::factory(10)->create();
+//        Service::factory(10)->create();
+//        Review::factory(50)->create();
+//        Application::factory(70)->create();
 //        AboutUs::factory(3)->create();
     }
 }
